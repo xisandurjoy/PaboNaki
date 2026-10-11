@@ -1,0 +1,1 @@
+package com.pabonaki.repo;import com.pabonaki.model.Category;import org.springframework.data.mongodb.repository.MongoRepository;import java.util.List;public interface CategoryRepository extends MongoRepository<Category,String>{List<Category> findByActiveTrueOrderByNameAsc();}

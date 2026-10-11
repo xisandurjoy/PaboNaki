@@ -1,0 +1,1 @@
+window.PABONAKI_CONFIG={API_BASE:"/api/v1",USE_DEMO_FALLBACK:true};

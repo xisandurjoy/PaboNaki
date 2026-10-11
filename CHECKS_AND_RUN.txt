@@ -1,0 +1,36 @@
+PABONAKI — PACKAGE CHECK NOTES
+
+Preservation:
+- This package is based on the current bugfix_v2 source tree.
+- The Google sign-in UI and code remain present: #google-signin, setupGoogleSignIn(), /config/public, and /auth/google.
+- Google sign-in appears only when GOOGLE_CLIENT_ID is configured and matches the authorized website origin in Google Cloud Console. If not configured, the UI intentionally hides it; it has not been deleted.
+- Backend static storefront, admin/customer pages, CSS, JS, media assets, controllers, models, repositories, and integration code are included.
+- Old compiled backend/target classes are not packaged, to avoid running stale classes. Build from source.
+
+Checks performed in the packaging environment:
+- All backend static JavaScript files passed `node --check`.
+- backend/pom.xml parsed as valid XML.
+- ZIP archive integrity checked after packaging.
+
+Not verified here:
+- Full Maven compile/test and real server startup: Maven is not installed in the packaging environment.
+- MongoDB Atlas, Google OAuth, Cloudinary, Gemini, email, Pathao, and payment-provider live calls require valid user-owned credentials and configuration.
+
+Run on Windows:
+1. Install JDK 21 and Maven.
+2. Open this PaboNaki_Complete folder in IntelliJ IDEA.
+3. Configure environment variables from .env.example. Do not paste real credentials into source files.
+4. In Terminal, `cd backend`, then run `mvn clean test`.
+5. If tests pass, run `mvn spring-boot:run`.
+6. Open http://localhost:8080/ (not by double-clicking index.html).
+7. If localhost refuses connection, check IntelliJ Run Console for `Started PaboNakiApplication` or the first startup error.
+
+Google sign-in:
+- Set GOOGLE_CLIENT_ID to the OAuth Web client ID.
+- Add http://localhost:8080 to the authorized JavaScript origins for local development.
+- Restart the backend after changing environment variables.
+
+Cloudinary image upload:
+- CLOUDINARY_CLOUD_NAME must be the exact Cloud Name from the Cloudinary dashboard, not a username, folder, or API key.
+- Configure CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET separately.
+- If any credentials were shared publicly, rotate them before use.

@@ -1,0 +1,15 @@
+{
+  "_comment": "Create these two Atlas Search indexes of type 'vectorSearch' on collection <db>.product_embeddings. Dimensions must equal AI_EMBEDDING_DIMENSIONS (768).",
+  "product_text_vector_index": {
+    "fields": [
+      { "type": "vector", "path": "textVector", "numDimensions": 768, "similarity": "cosine" },
+      { "type": "filter", "path": "active" }
+    ]
+  },
+  "product_image_vector_index": {
+    "fields": [
+      { "type": "vector", "path": "imageVector", "numDimensions": 768, "similarity": "cosine" },
+      { "type": "filter", "path": "active" }
+    ]
+  }
+}

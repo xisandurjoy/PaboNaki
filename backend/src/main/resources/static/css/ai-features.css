@@ -1,0 +1,24 @@
+/* PaboNaki AI features: uses the existing design tokens from store.css */
+.ai-section{padding-top:8px;padding-bottom:8px}
+.ai-block+.ai-block{margin-top:28px}
+.ai-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 14px}
+.ai-head h2{margin:0;font-size:22px;color:var(--ink)}
+.ai-sub{margin:4px 0 0;color:var(--muted);font-size:13.5px}
+.ai-headline{display:flex;align-items:center;gap:14px}
+.ai-thumb{width:56px;height:56px;border-radius:var(--r-sm);object-fit:cover;border:1px solid var(--line)}
+.ai-actions{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.ai-head+.ai-actions{margin-top:0}
+.ai-row{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.ai-row .pcard{flex:0 0 190px;scroll-snap-align:start}
+.ai-cam{display:inline-flex;align-items:center;justify-content:center;width:42px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;border-left:1px solid var(--line)}
+.ai-cam:hover,.ai-cam:focus-visible{color:var(--brand);background:var(--brand-soft);outline:0}
+.ai-cam .ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ai-sim{position:absolute;left:8px;bottom:8px;background:var(--brand-dark);color:#fff;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px}
+.ai-preview{text-align:center}
+.ai-preview img{max-width:100%;max-height:48vh;border-radius:var(--r);border:1px solid var(--line);margin:8px auto}
+.ai-preview .ai-actions{justify-content:center}
+.ai-qv-reco{margin-top:22px;padding:0 4px 18px;border-top:1px solid var(--line)}
+.ai-qv-reco .ai-block{margin-top:18px}
+.ai-qv-reco .ai-head h2{font-size:17px}
+.ai-qv-reco .ai-row .pcard{flex-basis:150px}
+@media (max-width:600px){.ai-head h2{font-size:18px}.ai-row .pcard{flex-basis:160px}.ai-cam{width:38px}}
